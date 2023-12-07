@@ -43,14 +43,16 @@ INSTALLED_APPS = [
     #inst_apps
     'rest_framework',
     'rest_framework.authtoken',
+    'dj_rest_auth',
+    'drf_yasg',
+    'django_filters',
     # my_apps
     'account',
     'category',
     'comment',
     'like',
     'post',
-
-]
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -89,11 +91,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         "ENGINE": 'django.db.backends.postgresql',
-        'NAME': con ('DB_NAME'),
-        'USER': con ('DB_USER'),
+        'NAME': con('DB_NAME'),
+        'USER': con('DB_USER'),
         'PASSWORD': con('DB_PASSWORD'),
-        'HOST' : 'localhost',
-        'PORT' : 5432
+        'HOST': 'localhost',
+        'PORT': 5432
 
 
 
@@ -125,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bishkek'
 
 USE_I18N = True
 
@@ -142,3 +144,17 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Basic Authentication
+# Session Authentication
+# Base Token Authentication
+# JWT Authentication
+#       OTP Authentication
+#       TOTP Authentication
+#       2F Authentication
+# OAuth Authentication
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+}
